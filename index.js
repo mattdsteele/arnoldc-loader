@@ -1,7 +1,9 @@
 var transpile = require('arnoldc.js/lib/Transpiler').transpile;
+var loaderUtils = require('loader-utils');
 
 module.exports = function(source) {
-  var mapping = transpile(source, 'file.js');
-  var output = mapping.toStringWithSourceMap({ file: 'file.js' });
-  return output.code;
+  var fileName =  loaderUtils.getRemainingRequest(this);
+  var mapping = transpile(source, fileName);
+  var output = mapping.toStringWithSourceMap({ file: fileName });
+  this.callback(null, output.code, output.map.toString());
 };
