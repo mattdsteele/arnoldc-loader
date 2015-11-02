@@ -9,7 +9,7 @@
   "author": "Matt Steele",
   "license": "ISC",
   "dependencies": {
-    "arnoldc.js": "0.0.1",
+    "arnoldc.js": "~0.0.2",
     "loader-utils": "^0.2.11"
   }
 }
